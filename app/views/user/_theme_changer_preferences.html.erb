@@ -17,10 +17,10 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -%>
 
-<p>
-<%=hidden_field_tag :preview_theme %>
-<%=form.select(:theme, [[l(:label_default),""]]+Redmine::Themes.themes.collect {|t| [t.name, t.id]}, {:label => :label_theme}) %>
-</p>
+<%= hidden_field_tag :preview_theme %>
+<%= labelled_fields_for :pref, @user.pref do |pref_fields| %>
+<p><%= pref_fields.select :theme, [[l(:label_default),""]] + Redmine::Themes.themes.collect {|t| [t.name, t.id]}, :label => :label_theme  %></p>
+<% end %>
 
 <% if params[:controller] == 'my' %>
 <script type="text/javascript">

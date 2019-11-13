@@ -1,5 +1,5 @@
 module RedmineThemeChanger
   class Hooks < Redmine::Hook::ViewListener
-    render_on :view_user_preferences_start, :partial => 'user/theme_changer_preferences', :multipart => true
+    render_on :view_my_account_preferences, :partial => 'user/theme_changer_preferences', :multipart => true
   end
 end
